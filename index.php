@@ -33,3 +33,26 @@
   </tr>
   <?php endwhile; ?>
 </table>
+
+<?php
+  /* INSERT DATA */
+
+  //Create Dummy Variables
+  $first_name = "David";
+  $last_name = "Johnson";
+  $dept = "Design";
+  $email = "djohnson@yahoo.com";
+
+  //Create Statement
+  $sth = $dbh->prepare("INSERT INTO employees (first_name, last_name, department, email) VALUES
+  (:first_name, :last_name, :department, :email)");
+
+  //Bind Values
+  $sth->bindParam(':first_name', $first_name);  
+  $sth->bindParam(':last_name', $last_name);  
+  $sth->bindParam(':department', $dept);  
+  $sth->bindParam(':email', $email); 
+
+  //Execute
+  $sth->execute();
+?>
