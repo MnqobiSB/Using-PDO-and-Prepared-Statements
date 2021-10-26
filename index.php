@@ -59,7 +59,7 @@
   */
 
   /* UPDATE DATA */
-
+  /*
   //Create Dummy Variables
   $id = 16;
   $dept = "Programming";
@@ -75,5 +75,18 @@
 
   //Execute
   $sth->execute();
-  
+  */
+
+  /* DELETE DATA */
+  //Create Dummy Variables
+  $id = 15;
+
+  //Create Statement
+  $sth = $dbh->prepare("DELETE FROM employees WHERE  id = :id");
+              
+  //Bind Values
+  $sth->bindParam(':id', $id);    
+
+  //Execute
+  $sth->execute();
 ?>
