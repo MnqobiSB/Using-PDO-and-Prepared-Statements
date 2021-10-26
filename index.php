@@ -37,6 +37,7 @@
 <?php
   /* INSERT DATA */
 
+  /*
   //Create Dummy Variables
   $first_name = "David";
   $last_name = "Johnson";
@@ -55,4 +56,24 @@
 
   //Execute
   $sth->execute();
+  */
+
+  /* UPDATE DATA */
+
+  //Create Dummy Variables
+  $id = 16;
+  $dept = "Programming";
+  $email = "ohnson@gmail.com";
+
+  //Create Statement
+  $sth = $dbh->prepare("UPDATE employees SET department = :department, email = :email WHERE id = :id");
+              
+  //Bind Values
+  $sth->bindParam(':id', $id);   
+  $sth->bindParam(':department', $dept);  
+  $sth->bindParam(':email', $email);  
+
+  //Execute
+  $sth->execute();
+  
 ?>
